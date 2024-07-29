@@ -1,0 +1,36 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    RewriteBase /tnt/
+	 
+
+    # Remove access to system folder
+    RewriteCond $1 ^lion.*
+    RewriteRule ^(.*)$ /index.php/$1 [L]
+
+    # Remove access to system folder
+    RewriteCond $1 ^bag/cache.*
+    RewriteRule ^(.*)$ /index.php/$1 [L]
+
+    # Allow access to asset directories
+    RewriteCond $1 ^tiger.*
+    RewriteCond $1 !(bag.*)
+    RewriteRule ^(.*)$ /index.php/$1 [L]
+
+    # Check if user is accessing a file or folder that already exists
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [QSA,L]
+
+    RewriteCond %{HTTP:Authorization} ^(.*)
+    RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+</IfModule>
+ 
+<IfModule !mod_rewrite.c>
+    # If we don't have mod_rewrite installed, all 404's
+    # can be sent to index.php and everything works as normal.
+    #ErrorDocument 404 /index.php
+	
+  ErrorDocument 404 admin/dashboard/index.php
+
+</IfModule>

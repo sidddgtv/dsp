@@ -1,0 +1,47 @@
+<div class="bannerslider">
+	<?php 
+		foreach($slider as $s){
+		echo '<div><img src="'.base_url('storage/uploads/'.$s['image']).'" alt="" class="img-fluid"></div>';
+	}
+	?>
+</div>
+<div class="container position-absolute top-50 start-50 translate-middle text-white text-center">
+	<?php //echo $portfolio_data['description'];?>
+	<h2><?php echo $portfolio_data['title']; ?></h2>
+	<h5 class="fw-light  hstack gap-2 justify-content-center"><?php echo $portfolio_data['subtitle']; ?></h5>
+</div>
+
+<div class="rightshadow position-relative">
+	<div class="container-fluid p-0">
+		<div class="row g-0 justify-content-end">
+			<div class="col-xl-6">
+				<img src="<?php echo base_url('storage/uploads/'.$portfolio_data['portfolio_image']); ?>" class="img-fluid w-100">
+			</div>
+			<div class="col-xl-6">
+				<div class="bg-warning text-white homerightbox position-relative h-100">
+					<?php echo $portfolio_data['portfolio_description']; ?>
+					<div class="socialbox">
+						<a href="#"><i class="lab la-facebook-f"></i></a> 
+						<a href="#"><i class="lab la-linkedin-in"></i></a> 
+						<a href="#"><i class="lab la-instagram"></i></a> 
+						<a href="#"><i class="lab la-pinterest-p"></i></a> 
+						<a href="#"><i class="lab la-twitter"></i></a> 
+						<a href="#"><i class="lab la-youtube"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php 
+if(strlen($portfolio_data['map'])){
+	echo '<div  style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">'.$portfolio_data['map'].'</div>';
+}
+
+
+		
+
+	
+		
+

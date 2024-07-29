@@ -1,0 +1,136 @@
+<div class="d-flex align-items-center justify-content-between">
+	<h6 class="mb-0"><strong><?php echo $text_form; ?></strong></h6>
+	<div class="pull-right">
+		<button type="submit" form="form-user" data-toggle="tooltip" title="Save" class="btn btn-primary btn-sm"><i class="fa fa-save"></i></button>
+		<a href="<?php echo admin_url('users'); ?>" data-toggle="tooltip" title="Cancel" class="btn btn-danger btn-sm"><i class="fa fa-reply"></i></a>
+	</div>
+</div>
+<hr/>
+
+
+<?php echo form_open_multipart(null, 'id="form-user" class="form-horizontal"'); ?>
+
+
+<ul class="nav nav-tabs" id="userTab" role="tablist"> 
+	<li class="nav-item" role="presentation">
+		<button class="nav-link active" id="tab-general-btn" data-bs-toggle="tab" data-bs-target="#tab-edit" type="button" role="tab" aria-controls="edit" aria-selected="true">Edit User</button>
+	</li>
+	<li class="nav-item" role="presentation">
+		<button class="nav-link" id="tab-site-button" data-bs-toggle="tab" data-bs-target="#tab-document" type="button" role="tab" aria-controls="document" aria-selected="false">Send Documnents</button>
+	</li>
+	<li class="nav-item" role="presentation">
+		<button class="nav-link" id="tab-account-button" data-bs-toggle="tab" data-bs-target="#tab-status" type="button" role="tab" aria-controls="status" aria-selected="false">Document Status</button>
+	</li>
+</ul>
+
+<div id="settingsTabContent" class="tab-content">
+	<div class="tab-pane fade show active" id="tab-edit" role="tabpanel">
+		<div class="row mt-4 required">
+			<label class="col-2 control-label" for="name">Name</label>
+				<div class="col-10">
+					<?php echo form_input(array('class'=>'form-control','name' => 'name', 'id' => 'name', 'placeholder'=>'Name','value' => set_value('name', $name))); ?>
+					<?php echo form_error('name', '<div class="text-danger">', '</div>'); ?>
+				</div>
+		</div>
+		<div class="row mt-2 required">
+			<label class="col-2 control-label" for="email">Email ID</label>
+				<div class="col-10">
+					<?php echo form_input(array('type' => 'email', 'class'=>'form-control','name' => 'email', 'id' => 'email', 'placeholder'=>'Email ID','value' => set_value('email', $email))); ?>
+					<?php echo form_error('email', '<div class="text-danger">', '</div>'); ?>
+				</div>
+		</div>
+		<div class="row mt-2 required">
+			<label class="col-2 control-label" for="password">Password</label>
+				<div class="col-10">
+					<?php echo form_input(array('class'=>'form-control','name' => 'password', 'id' => 'password', 'placeholder' => 'Password', 'value' => set_value('password', $password))); ?>
+					<?php echo form_error('password', '<div class="text-danger">', '</div>'); ?>
+				</div>
+		</div>
+
+<!--
+	<div class="row mt-2 required">
+		<label class="col-2 control-label" for="image">Image</label>
+		<div class="col-10">
+
+
+			<div class="fileinput">
+				<div class="thumbnail file-browse">
+					<img src="<?php echo $thumb_icon; ?>" alt="" id="thumb_icon" />
+					<input type="hidden" name="image" value="<?php echo $image?>" id="image" />
+				</div>
+				<div class="btn-group mt-1" role="group">
+					<a class="btn btn-primary btn-sm" onclick="image_upload('image','thumb_icon')">Select Image</a>
+					<a class="btn btn-danger btn-sm" onclick="$('#thumb_icon').attr('src', '<?php echo $no_image; ?>'); $('#site_icon').attr('value', '');">Clear</a>
+				</div>
+			</div>
+
+
+			
+		</div>
+	</div>
+-->
+		<div class="row mt-2 required">
+			<label class="col-2 control-label" for="activated">Status</label>
+			<div class="col-10">
+				<?php  echo form_dropdown('activated', array('1'=>'Activated','0'=>'Deactivated'), set_value('activated',$activated),array('class'=>'form-select select2','id' => 'activated')); ?>
+			</div>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="tab-document" role="tabpanel">
+		<div class="row mt-4">
+    		<label for="title" class="col-2 control-label">File Upload</label>
+    		<div class="col-10">
+       			<input oninput="this.className = ''" type="file" class="form-control" name="uploadfile" id="fileToUpload">
+    		</div>
+		</div>
+	</div>
+
+	<div class="tab-pane" id="tab-status" role="tabpanel">
+
+			
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<?php echo form_close(); ?>
+
+<?php js_start(); ?>
+<script type="text/javascript">
+	function image_upload(field, thumb) {
+		window.KCFinder = {
+			callBack: function(url) {
+				window.KCFinder = null;
+				var lastSlash = url.lastIndexOf("uploads/");
+				var fileName=url.substring(lastSlash+7);
+				url=url.replace("images", ".thumbs/images"); 
+				$('#'+thumb).attr('src', "<?=base_url()?>"+ url);
+				$('#'+field).attr('value', fileName);
+				$.colorbox.close();
+				/*$.post('<?php echo site_url('setting/create-thumb'); ?>', {'image_path': fileName}, function(image_path) {
+					$('#'+thumb).attr('src', image_path);
+					$('#'+field).attr('value', fileName);
+					$.colorbox.close();
+				});*/
+			}
+		};
+		$.colorbox({href:BASE_URL+"storage/plugins/kcfinder/browse.php?type=images",width:"850px", height:"550px", iframe:true,title:"Image Manager"});	
+	};
+</script>
+
+<?php js_end(); ?>

@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+@font-face {
+    font-family: 'Trajan Pro 3';
+    src: url('../fonts/TrajanPro3-Regular.woff2') format('woff2'),
+        url('../fonts/TrajanPro3-Regular.woff') format('woff'),
+        url('../fonts/TrajanPro3-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {background: #223555; margin: 0; font:13px 'Trajan Pro 3', sans-serif; color: #1B1B1B; line-height:24px; font-weight:400;}
+html, body, .content-page {height: 100vh;}
+a{color: #b89b5e; text-decoration: none;}
+
+.bg-dark{background: #223555!important;}
+.home {
+    background-color: transparent;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(34, 53, 85, 0.88)), to(rgba(34, 53, 85, 0.88))), url(https://global-uploads.webflow.com/5ec9a7f…/5ecafbb…_123Asset%206.svg), -webkit-gradient(linear, left bottom, left top, color-stop(15%, hsla(0, 0%, 100%, 0.42)), to(#223555));
+    background-image: linear-gradient(
+180deg
+, rgba(34, 53, 85, 0.88), rgba(34, 53, 85, 0.88)), url('../images/logo.svg'), linear-gradient(
+0deg
+, hsla(0, 0%, 100%, 0.42) 15%, #223555);
+    background-position: 0px 0px, 50% 50%, 0px 0px;
+    background-size: auto, contain, auto;
+    background-repeat: repeat, no-repeat, repeat;
+    background-attachment: scroll, fixed, scroll;
+}
+
+.table { border-color:#ebebeb; }
+table tbody tr:hover {background-color: #f7f8fb; }
+.accordion-button::after{height: 12px; width: 12px; background-size: inherit;}
+.accordion-button{font-size: 13px;}
+.accordion-button:focus{box-shadow: none; }
+.accordion-button:not(.collapsed) { background-color: #f5f7f9;}
+.list-group-item{background-color:none; border: 0;}
+.tooltip-inner {font-size: 10px; padding: 4px 6px; border-radius: 0;}
+.border-end-transparent{ border-right: 1px solid rgba(255,255,255,.1); }
+.border-start-transparent{ border-left: 1px solid rgba(255,255,255,.1); }
+.border-bottom-transparent{ border-bottom: 1px solid rgba(255,255,255,.1); }
+
+
+
+.text-warning{color: #b89b5e!important;}
+.btn i{ font-size: 1.1rem;}
+.btn-primary { background-color: #243556; border-color: #243556;}
+.btn-primary:hover { background-color: #1b2835; border-color: #1b2835;}
+.btn-outline-secondary { border-color: #dad8d8;}
+
+.breadcrumb-item{
+font-family: 'Open Sans', sans-serif;
+}
+.breadcrumb-item a {
+    color: #FFFFFF;
+}
+.breadcrumb-item.active {
+    color: #b89b5e;
+}
+#mastertable_length{
+   
+}
+
+#mastertable{
+    border-bottom: none!important;
+     border-color: #efefef!important;
+}
+.table-hover > tbody > tr:hover {background-color: #f7f8fb!important; }
+.table > :not(:last-child) > :last-child > *{
+    border-bottom-color:#efefef!important;
+}
+.paginate_button{
+    padding: .25rem .5rem;
+font-size: .875rem;
+}
+#mastertable_paginate{
+    color: #243556;
+}
+.paginate_button {
+    position: relative;
+    display: block;
+    color: #0d6efd;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.paginate_button:hover {
+    z-index: 2!important;
+    color: #0a58ca!important;
+    background-color: #e9ecef!important;
+    border-color: #dee2e6!important;
+}
+#record .btn-success{
+ 
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    background-color: #fff!important;
+border: 1px solid #dee2e6;
+padding: 1px 8px;
+}
+
+#header-leftcol{
+height: 80px;
+}
+.progress i{
+margin-top: -4.5px;
+margin-left: -9px;
+
+font-size: 13px;}
+
+.page-link {color: #243556;}
+
+.header-btn{display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; text-decoration: none; color: #b89b5e; font-size: 24px;}
+.header-btn:hover{background:rgba(255,255,255,.1); color: #FFFFFF; }
+
+.sidebar-toggle {
+  margin-left: -240px;
+}
+.sidebar {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+}
+.sidebar #leftside-navigation ul,
+.sidebar #leftside-navigation ul ul {
+  margin: 0;
+  padding: 0;
+}
+.sidebar #leftside-navigation ul li {
+  list-style-type: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.sidebar #leftside-navigation ul li.active > a {
+  color: #FFFFFF;
+}
+.sidebar #leftside-navigation ul li.active i.arrow {
+  transform: rotate(90deg);
+}
+.sidebar #leftside-navigation ul li.active ul {
+  display: block;
+}
+.sidebar #leftside-navigation ul li a {
+  color: #b89b5e;
+  text-decoration: none;
+display: flex;
+align-items: center;
+  padding: 15px;
+  outline: 0;
+  -webkit-transition: all 200ms ease-in;
+  -moz-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  -ms-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+.sidebar #leftside-navigation ul li a:hover {
+  color: #FFFFFF;
+}
+.sidebar #leftside-navigation ul li a i {
+  width: 20px;
+}
+.sidebar #leftside-navigation ul li a i .fa-angle-left,
+.sidebar #leftside-navigation ul li a i .fa-angle-right {
+  padding-top: 3px;
+}
+.sidebar #leftside-navigation ul ul {
+  display: none;
+}
+.sidebar #leftside-navigation ul ul li {
+  background: #2d3f5e;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  border-bottom: none;
+}
+.sidebar #leftside-navigation ul ul li a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 35px;
+}
+
+
+::-webkit-scrollbar { width: 5px; padding: 0 2px;}
+::-webkit-scrollbar-thumb { background: #b89b5e;}
+::-webkit-scrollbar-track { background: #223555;}
+
+.profile{width: 100px; height: 100px; object-fit: cover;
+background: #fff;}
+
+@media (min-width: 992px) { 
+	#header-leftcol{  max-width: 260px; width: 100%; }
+	#left-col{ max-width: 260px; width: 100%; position: relative;}
+}
+@media (max-width:991.98px){
+	#left-col{display: none; position: absolute; background: #223555; z-index: 1;}
+	.sidebar #leftside-navigation ul li a{justify-content: center;}
+	table.dataTable>tbody>tr.child ul.dtr-details{width: 100%}
+}
+@media (max-width: 575.98px) { 
+	td.child .search_filter, td.child .dropdown_filter{display: none;}
+
+}

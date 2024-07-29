@@ -1,0 +1,173 @@
+.placeholder {
+    background-color: #cfcfcf;
+    height: 28px;
+}
+
+.ui-nestedSortable-error {
+    background:#fbe3e4;
+    color:#8a1f11;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+    padding-left: 30px;
+}
+
+ol.sortable, ol.sortable ol {
+    margin: 0 0 0 25px;
+    padding: 0;
+    list-style-type: none;
+}
+
+ol.sortable {
+   clear: both;
+    margin: 0;
+	
+}
+
+#loder {
+	background: #f7f7f7;
+	border-bottom: #E8E8E8 1px solid;
+	/* border-top: #E8E8E8 1px solid; */
+	border-left: #E8E8E8 1px solid;
+	border-right: #E8E8E8 1px solid;
+	/* border-radius: 6px; */
+	box-shadow: 0 1px 0 #fff inset;
+	font: 11px/18px Tahoma,sans-serif;
+	padding: 20px 10px;
+	position: relative;
+	margin: 0 5px 0 0;
+	cursor:move;
+	display:inline-block;
+}
+#loder_menu {
+	background: #f7f7f7;
+	border-bottom: #d8d8d8 1px solid;
+	/* border-top: #d8d8d8 1px solid; */
+	/* border-left: #d8d8d8 1px solid; */
+	/* border-right: #d8d8d8 1px solid; */
+	/* border-radius: 6px; */
+	box-shadow: 0 1px 0 #fff inset;
+	font: 11px/18px Tahoma,sans-serif;
+	padding: 24px 0;
+	position: relative;
+	/* margin: 1px; */
+	cursor:move;
+	
+}
+
+
+.sortable_handle {
+    display: inline-block;
+    width: 10px;
+	background: url(../../images/drag-handle.gif) center center no-repeat;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 5px;
+    cursor: move;
+}
+
+
+.sortable li:hover {
+   background-color: #FFFFFF;
+}
+
+.nav_tree_icons {
+    float: right;
+}
+
+.nav_tree_icons a {
+    margin-left: 5px;
+}
+
+#status {
+    padding: 5px;
+    background-color: #EFEFEF;
+    height: 15px;
+}
+.drage div {
+   
+	position: absolute;
+    
+}
+.drage_menu div {
+   
+	position: absolute;
+    
+}
+.class1{
+	border: medium none;
+	cursor: move;
+	padding-left: 20px;
+	position: static;
+	background: green;
+	width: 46%;	
+	line-height:0;
+}
+
+.class3{
+	right: 38px;
+	top:6px;
+	
+}
+
+.class3 a:hover{
+	text-decoration:none;
+}
+.class2{
+	width: 340px;
+	/* height: 40px; */
+	right: 160px;
+	line-height:0;
+	
+}
+
+.class4 img{
+	width:100px;
+	height:30px;
+}
+.class4{
+	width: 340px;
+	/* height: 40px; */
+	right: 170px;
+	line-height:0;
+	top:5px;
+}
+.class5{
+	width: 340px;
+	/* height: 40px; */
+	right: 131px;
+	line-height:0;
+	
+}
+/* ---------------------------------------- Design For Menu----------------------------------------------------*/
+
+.menu_title{
+	border: medium none;
+    cursor: move;
+    font-weight: bold;
+    width:24%;
+	margin:1px;
+    
+	top:5px;
+}
+.menu_url{
+	left: 212px;
+	width: 24%;
+	margin: 1px;
+	top: 5px;
+	word-break: break-all;
+}
+.menu_class{
+	right: 100px;
+	width: 21%;
+	margin: 1px;
+	top: 5px;
+}
+.menu_act{
+	right: 0px;
+    
+		margin:0px;
+	top:10px;
+}
