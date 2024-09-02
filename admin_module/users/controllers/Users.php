@@ -1544,6 +1544,8 @@ class Users extends Admin_Controller {
 		// Create a new DateTime object and set it to the first day of the specified week
 		$date = new DateTime();
 		$date->setISODate($year, $weekNumber);
+		//make it sunday
+		$date->modify('-1 day');
 	
 		// Iterate through the next 7 days to get all dates of the week
 		for ($i = 0; $i < 7; $i++) {
@@ -2015,28 +2017,7 @@ class Users extends Admin_Controller {
 							<tr><th>Human in Photo</th><td class="text-end">-</td><!-- <td class="d-flex justify-content-center mt-2"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"></div></td>--></tr>
 							<tr><th>Contact Compliance</th><td class="text-end">-</td><!-- <td class="d-flex justify-content-center mt-2"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"></div></td>--></tr>
 							</table>
-							<table class="table table-sm small d-none">
-							<tr>
-								<th>Completion Rate</th>
-								<td class="text-end">'.(is_numeric($scorecard_data['dcr']) ? ($scorecard_data['dcr']*100).'%' : '-').'</td>
-							</tr>
-							<tr>
-								<th>Photo-On-Delivery Compliance</th>
-								<td class="text-end">'.(is_numeric($scorecard_data['swc_pod']) ? ($scorecard_data['swc_pod']*100).'%' : '-').'</td>
-							</tr>
-							<tr>
-								<th>Photo-On-Delivery Rejects</th>
-								<td class="text-end">'.(is_numeric($scorecard_data['cc_opps']) ? $scorecard_data['cc_opps'] : '-').'/'.(is_numeric($scorecard_data['pod_opps']) ? $scorecard_data['pod_opps'] : '-').'</td>
-							</tr>
-							<tr>
-								<th>Human in Photo</th>
-								<td class="text-end">0</td>
-							</tr>
-							<tr>
-								<th>Contact Compliance</th>
-								<td class="text-end">'.(is_numeric($scorecard_data['swc_cc']) ? ($scorecard_data['swc_cc']*100).'%' : '-').'</td>
-							</tr>
-							</table>
+							
 						</div>
 						</div>
 					</div>
@@ -2062,8 +2043,8 @@ class Users extends Admin_Controller {
 						<tr><th>Feedback Score (CDF)</th><td class="text-end">'.(floatval($scorecard_data['cdf'])*100).'%</td><!-- <td class="d-flex justify-content-center mt-2"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"></div></td>--></tr>
 						<tr><th>Tier</th><td class="text-end">'.$scorecard_data['overall_standing'].'</td><!-- <td class="d-flex justify-content-center mt-2"><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"></div></td>--></tr>
 						
-						<tr><th>DCR</th><td class="text-end">'.$scorecard_data['dcr'].'</td>
-						<tr><th>DSB</th><td class="text-end">'.$scorecard_data['dsb'].'</td>
+						<tr><th>DCR</th><td class="text-end">'.(floatval($scorecard_data['dcr'])*100).'%</td>
+						<tr><th>DSB</th><td class="text-end">'.(floatval($scorecard_data['dsb'])*100).'%</td>
 						<tr><th>SWC POD</th><td class="text-end">'.(floatval($scorecard_data['swc_pod'])*100).'%</td>
 						<tr><th>SWC CC</th><td class="text-end">'.(floatval($scorecard_data['swc_cc'])*100).'%</td>
 						<tr><th>SWC AD</th><td class="text-end">'.(floatval($scorecard_data['swc_ad'])*100).'%</td>
@@ -2074,7 +2055,7 @@ class Users extends Admin_Controller {
 						<tr><th>POD OPPS</th><td class="text-end">'.$scorecard_data['pod_opps'].'</td>
 						<tr><th>CC OPPS</th><td class="text-end">'.$scorecard_data['cc_opps'].'</td>
 						<tr><th>Customer Escalation Defect</th><td class="text-end">'.$scorecard_data['customer_escalation_defect'].'</td>
-						<tr><th>Customer Delivery Feedback</th><td class="text-end">'.$scorecard_data['customer_delivery_feedback'].'</td>
+						<tr><th>Customer Delivery Feedback</th><td class="text-end">'.(floatval($scorecard_data['customer_delivery_feedback'])*100).'%</td>
 					
 						</table>
 
@@ -2136,6 +2117,31 @@ class Users extends Admin_Controller {
 			</div>
 			<!--row ends-->
 			';
+
+
+			/*
+			<table class="table table-sm small d-none">
+			<tr>
+				<th>Completion Rate</th>
+				<td class="text-end">'.(is_numeric($scorecard_data['dcr']) ? ($scorecard_data['dcr']*100).'%' : '-').'</td>
+			</tr>
+			<tr>
+				<th>Photo-On-Delivery Compliance</th>
+				<td class="text-end">'.(is_numeric($scorecard_data['swc_pod']) ? ($scorecard_data['swc_pod']*100).'%' : '-').'</td>
+			</tr>
+			<tr>
+				<th>Photo-On-Delivery Rejects</th>
+				<td class="text-end">'.(is_numeric($scorecard_data['cc_opps']) ? $scorecard_data['cc_opps'] : '-').'/'.(is_numeric($scorecard_data['pod_opps']) ? $scorecard_data['pod_opps'] : '-').'</td>
+			</tr>
+			<tr>
+				<th>Human in Photo</th>
+				<td class="text-end">0</td>
+			</tr>
+			<tr>
+				<th>Contact Compliance</th>
+				<td class="text-end">'.(is_numeric($scorecard_data['swc_cc']) ? ($scorecard_data['swc_cc']*100).'%' : '-').'</td>
+			</tr>
+			</table>*/
 		}
 
 		if($pdf == FALSE){

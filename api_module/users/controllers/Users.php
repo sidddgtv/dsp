@@ -275,6 +275,18 @@ class Users extends REST_Controller {
 				$bonus = $this->users_model->checkBonusAmount($scorecard['id']);
 				$bonus_tier = $bonus['tier'];
 				$bonus_amount = $bonus['bonus'];
+
+				switch($bonus_tier){
+					case 1:
+						$bonus_tier = 'Fantastic';
+						break;
+					case 2:
+						$bonus_tier = 'Great';
+						break;
+					case 3:
+						$bonus_tier = 'Fair';
+						break;
+				}
 			}
 			
 			$final = array(
@@ -283,8 +295,8 @@ class Users extends REST_Controller {
 				'attendance_points_scored' => 300,
 				'attendance_total_points' => 500,
 				'attendance_expiry' => 'Jun 13, 2024',
-				'bonus_tier' => 'Fantastic',//$bonus_tier,
-				'bonus_amount' => '5',//$bonus_amount,
+				'bonus_tier' => $bonus_tier,//'Fantastic',//
+				'bonus_amount' => $bonus_amount,//'5',//
 				/*'fico_rate' => '90',
 				'delivery_was_great' => '90',
 				'respect_property' => '90',
@@ -328,7 +340,12 @@ class Users extends REST_Controller {
 		if($this->userId){
 			//$score_data = $this->users_model->getScorecard($this->userId);
 			$scorecard = $this->users_model->getScorecard($this->userId, (int)$last_updated_week['max_week_number'], (int)$last_updated_week['max_year_number']);
-
+			$scorecard['cr'] = '-';
+			$scorecard['podc'] = '-';
+			$scorecard['podr'] = '-';
+			$scorecard['hip'] = '-';
+			$scorecard['cc'] = '-';
+			
 			$json=array(
 				'status'=>1,
 				'data'=>$scorecard,

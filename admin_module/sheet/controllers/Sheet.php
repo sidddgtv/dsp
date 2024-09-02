@@ -30,6 +30,8 @@ class Sheet extends Admin_Controller {
 		// Create a new DateTime object and set it to the first day of the specified week
 		$date = new DateTime();
 		$date->setISODate($year, $weekNumber);
+		//make it sunday
+		$date->modify('-1 day');
 	
 		// Iterate through the next 7 days to get all dates of the week
 		for ($i = 0; $i < 7; $i++) {

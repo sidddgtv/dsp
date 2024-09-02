@@ -30,6 +30,8 @@ class Schedule extends Admin_Controller {
 		// Create a new DateTime object and set it to the first day of the specified week
 		$date = new DateTime();
 		$date->setISODate($year, $weekNumber);
+		//make it sunday
+		$date->modify('-1 day');
 	
 		// Iterate through the next 7 days to get all dates of the week
 		for ($i = 0; $i < 7; $i++) {
@@ -49,6 +51,8 @@ class Schedule extends Admin_Controller {
 		// Create a new DateTime object and set it to the first day of the specified week
 		$date = new DateTime();
 		$date->setISODate($year, $weekNumber);
+		//make it sunday
+		$date->modify('-1 day');
 	
 		// Iterate through the next 7 days to get all dates of the week
 		for ($i = 0; $i < 7; $i++) {
@@ -566,7 +570,7 @@ class Schedule extends Admin_Controller {
 		$response = array();
 
 		//echo $total;die;
-		//echo '<pre>';print_r($f[0][2]);
+		//echo '<pre>';print_r($f[0][2]);die;
 		$starting_date = @$f[0][2];//deliberately supressing the error message
 		if(strlen($starting_date)){
 			//read date details
@@ -597,7 +601,7 @@ class Schedule extends Admin_Controller {
 				// Output the dates
 				//print_r($dates);die;
 				$weekNumber = $date->format('W');//placing it here will give current week since week starts from monday and this files atrts from sunday
-				
+				//echo $weekNumber;die;
 
 				//find for how many drivers, data is present
 				$d = json_decode($_POST['ls_values']);
@@ -668,7 +672,7 @@ class Schedule extends Admin_Controller {
 								//add new schedule
 								$data = array(
 									'driver_id' => $userid,
-									'week_number' => ($dl == 0 ? $weekNumber - 1 : $weekNumber),
+									'week_number' => $weekNumber,//($dl == 0 ? $weekNumber - 1 : $weekNumber),
 									'year_number' => $currentYear,
 									'scheduled_punch_in_time' => $scheduled_punch_in_time,
 									'scheduled_punch_out_time' => $scheduled_punch_out_time,
@@ -721,7 +725,7 @@ class Schedule extends Admin_Controller {
 						$value = (!empty($d[$next][$s_loop]) ? $d[$next][$s_loop] : '');
 						//save code
 						$data = array(
-							'week_number' => ($dl == 0 ? $weekNumber - 1 : $weekNumber),
+							'week_number' => $weekNumber,//($dl == 0 ? $weekNumber - 1 : $weekNumber),
 							'year_number' => $currentYear,
 							'for_date' => $dates[$dl],
 							'summary_title' => $summary_enum_values[$sev],
